@@ -1,27 +1,28 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import LeftScreen from './screens/LeftScreen'; // Import a component from another file
-import RightScreen from './screens/RightScreen'; // Import a component from another file
+import LeftScreen from './screens/LeftScreen'; 
+import RightScreen from './screens/RightScreen'; 
+import Home from './screens/Home'; 
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
 
 
 //import all the screens we are going to switch 
+const Tab = createMaterialTopTabNavigator();
 
-
-const Tab = createBottomTabNavigator();
-
-export default function App() {
+export default function App()  {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="RightScreen"
-        barStyle={{backgroundColor: '#0000'}}>
+        initialRouteName="Home"
+        shifting = "true"
+        tabBarPosition="bottom">
         <Tab.Screen name="LeftScreen" component={LeftScreen} />
+        <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="RightScreen" component={RightScreen} />
       </Tab.Navigator>
     </NavigationContainer>
+
   );
 }
