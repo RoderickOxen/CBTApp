@@ -1,65 +1,63 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet,ScrollView} from 'react-native';
+import { Text, View, StyleSheet,TouchableOpacity, Image} from 'react-native';
+import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view';
 
 export default class RightScreen extends Component {
-  render () {
+  render() {
     return (
-      < View  style = { styles . container } > 
+      <HeaderImageScrollView
+        maxHeight={150}
+        minHeight={100}
+        headerImage={require("../assets/images/startup.jpg")}
+        renderForeground={() => (
+          
+          <View style={{ 
+              height: 150, 
+              justifyContent: "center", 
+              alignItems: "center" 
+          }} >
+
+            <TouchableOpacity onPress={() => console.log("tap!!")}>
+              <Text style={{ backgroundColor: "transparent" }}>Tap Me!</Text>
+            </TouchableOpacity>
+
+            <Image
+              style={styles.logo}
+              source={require("../assets/images/logo2.png")}
+            />
+
+
+          
+            
+          </View>
+          
+        )}
+      >
+
         
-         < View  style = { styles . SquareShapeView }   / > 
- 
-         < View  style = { styles . RectangleShapeView }   / > 
+        <View style={{ height: 1000 }}>
+          <TriggeringView onHide={() => console.log("text hidden")}>
+            <Text>Scroll Me!</Text>
 
-         <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-       
 
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
-        <Text style={styles.welcome}>Welcome to React Native</Text>
 
-     
-         </ View>
-   )
- }
+
+
+
+
+          </TriggeringView>
+        </View>
+      </HeaderImageScrollView>
+    );
+  }
 }
 
-const   styles   =   StyleSheet . create ( { 
-
-  container: { 
-    flex: 1 , 
-    justifyContent:   'center' , 
-    alignItems :   'center' , 
-    backgroundColor :   '#F5FCFF' , 
-  } , 
-
-  SquareShapeView :   { 
-
-    width :   120 , 
-    height :   120 , 
-    backgroundColor :   '#00BCD4' 
-
-  } , 
-
-  RectangleShapeView :   { 
-
-  marginTop :   20 , 
-  width :   120   *   2 , 
-  height :   120 , 
-  backgroundColor :   '#FFC107' 
-
-  } 
-
-} ) ; 
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // or 'stretch'
+  }
+});
 
 
 

@@ -5,6 +5,7 @@ import LeftScreen from './screens/LeftScreen';
 import RightScreen from './screens/RightScreen'; 
 import Home from './screens/Home'; 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import colors from './styles/colors';
 
 
 
@@ -17,10 +18,14 @@ export default function App()  {
       <Tab.Navigator
         initialRouteName="Home"
         shifting = "true"
-        tabBarPosition="bottom">
-        <Tab.Screen name="LeftScreen" component={LeftScreen} />
+        tabBarPosition="bottom"
+        
+        
+        
+        >
+        <Tab.Screen name="International Recruitment" component={LeftScreen} />
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="RightScreen" component={RightScreen} />
+        <Tab.Screen name="Talent    Leasing" component={RightScreen} />
       </Tab.Navigator>
     </NavigationContainer>
 
